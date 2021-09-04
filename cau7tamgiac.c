@@ -5,9 +5,9 @@ int main()
     int a, b, c;
     printf("nhap ba canh tam giac a,b,c : ");
     scanf("%d %d %d", &a, &b, &c);
-    if (b + c > a || a + c > b || a + b > c)
+    if (b + c > a && a + c > b && a + b > c)
     {
-        if (a == b == c)
+        if (a == b && b == c)
         {
             printf("tam gia deu");
         }

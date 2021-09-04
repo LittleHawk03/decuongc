@@ -3,14 +3,13 @@
 
 typedef struct
 {
-    char ten[30];
-    int dongia;
-    int soluog;
+    char sdt[30];
+    int sotien;
     long tong;
 } List;
 
 FILE *fp;
-const char *name = "C:\\Trenlop10\\cau12docflie\\SO_LIEU.txt";
+const char *name = "C:\\Trenlop10\\cau12docflie\\SO_LIEU.C";
 
 void In_file(int n)
 {
@@ -20,13 +19,10 @@ void In_file(int n)
     for (i = 0; i < n; i++)
     {
         fflush(stdin);
-        printf("ten mat hang : ");
-        gets(sp.ten);
+        printf("so dien thoai : ");
+        gets(sp.sdt);
         printf("don gia : ");
-        scanf("%d", &sp.dongia);
-        printf("so luong : ");
-        scanf("%d", &sp.soluog);
-        sp.tong = sp.soluog * sp.dongia;
+        scanf("%d", &sp.sotien);
         fwrite(&sp, sizeof(List), 1, fp);
     }
     printf("them thanh cong\n");
@@ -42,22 +38,26 @@ void ghi_bo_sung(int *n)
     printf("\tthem it nhat 2 phan tu vao file.\n");
     printf("\tnhap so san pham them vao : ");
     scanf("%d", &m);
-
-    while (i < m)
+    if (m >= 2)
     {
-        fflush(stdin);
-        printf("ten mat hang : ");
-        gets(sp.ten);
-        printf("don gia : ");
-        scanf("%d", &sp.dongia);
-        printf("so luong : ");
-        scanf("%d", &sp.soluog);
-        sp.tong = sp.soluog * sp.dongia;
-        fwrite(&sp, sizeof(sp), 1, fp);
-        i++;
+        while (i < m)
+        {
+            fflush(stdin);
+            printf("so dien thoai : ");
+            gets(sp.sdt);
+            printf("don gia : ");
+            scanf("%d", &sp.sotien);
+            fwrite(&sp, sizeof(sp), 1, fp);
+            i++;
+        }
+        *n = *n + m;
+        printf("bo sung thanh cong\n");
     }
-    *n = *n + m;
-    printf("bo sung thanh cong\n");
+    else
+    {
+        printf("nhap lai so nguoi lon hon 2\n");
+    }
+    
     fclose(fp);
 }
 
@@ -67,23 +67,23 @@ void hienthi(int n)
     int i;
     long tong = 0;
     fp = fopen(name, "rb");
-    printf("------------------SO LIEU BAN HANG------------------\n");
-    printf("%2s %33s %8s %9s\n", "stt", "Ten Hang", "Don Gia", "So Luong");
+    printf("-------------DANH SACH UNG HO QUY VACXIN--------------\n");
+    printf("%-10s %-33s %-8s\n", "stt", "so dien thoai", "so tien");
     for (i = 1; i <= n; i++)
     {
         fread(&sp, sizeof(List), 1, fp);
-        printf("%2d %33s %8d %9d\n", i, sp.ten, sp.dongia, sp.soluog);
-        tong = tong + sp.tong;
+        printf("%-10d %-33s %-8d\n", i, sp.sdt, sp.sotien);
+        tong = tong + sp.sotien;
     }
     printf("\n");
-    printf("                                        TONG TIEN : %ld", tong);
+    printf("                                        TONG TIEN : %ld\n", tong);
     fclose(fp);
 }
 
 int main()
 {
     int n, t;
-    printf("1.	Nhap so lieu ban hang len tep\n");
+    printf("1.	Nhap so lieu\n");
     printf("2.	Ghi bo sung so lieu ban hang vao cuoi tep SO_LIEU.C\n");
     printf("3.	Hien thi noi dung tep SO_LIEU.C\n");
     printf("4.	Ket thuc\n");
@@ -100,7 +100,7 @@ int main()
             switch (t)
             {
             case 1:
-                printf("nhap so luong mat hang : ");
+                printf("nhap so luong nguoi : ");
                 scanf("%d", &n);
                 In_file(n);
                 break;

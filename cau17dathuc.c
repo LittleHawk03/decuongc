@@ -1,22 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-void nhao_he_so(int a[], int n)
+void nhao_he_so(int a[], int n,char s)
 {
     int i;
     for (i = n; i >= 0; i--)
     {
+        printf("%c[%d] = ",s,i);
         scanf("%d", &a[i]);
     }
     printf("\n");
 }
 
-void in_he_so(int a[], int n)
+void in_he_so(int a[], int n,char s)
 {
     int i;
     for (i = n; i >= 0; i--)
     {
-        printf(" [%d] = %d ", i, a[i]);
+        printf(" %c[%d] = %d ",s, i, a[i]);
     }
     printf("\n");
 }
@@ -84,18 +85,18 @@ int main()
             printf("bac cua da thuc 1 la : ");
             scanf("%d", &n);
             printf("nhap cac he so cua da thuc : \n");
-            nhao_he_so(a, n);
+            nhao_he_so(a, n,'a');
             printf("bac cua da thuc 2 la : ");
             scanf("%d", &m);
             printf("nhap cac he so cua da thuc : \n");
-            nhao_he_so(b, m);
+            nhao_he_so(b, m,'b');
             flag = 1;
             break;
         case 2:
             if (flag == 1)
             {
                 k = tong_P_Q(n, a, m, b, c);
-                in_he_so(c, k);
+                in_he_so(c, k,'c');
                 flag = 2;
             }
             else
@@ -107,11 +108,11 @@ int main()
             if (flag = 2)
             {
                 printf("he so da thuc 1 : ");
-                in_he_so(a, n);
+                in_he_so(a, n,'a');
                 printf("he so da thuc 1 : ");
-                in_he_so(b, m);
+                in_he_so(b, m,'b');
                 printf("he so da thuc 1 : ");
-                in_he_so(c, k);
+                in_he_so(c, k,'c');
                 
             }
             else

@@ -3,7 +3,7 @@
 int main()
 {
     int a, b, r;
-    int a2, b2,ucln;
+    int a2, b2, bcnn;
     scanf("%d %d", &a, &b);
     a2 = a;
     b2 = b;
@@ -13,8 +13,9 @@ int main()
         a2 = b2;
         b2 = r;
     }
-    ucln = a / a2;
-    ucln = ucln*b;
-    printf("%d",ucln);
+    printf("ucln = %d\n", a2);
+    bcnn = a / a2;
+    bcnn = bcnn * b;
+    printf("bcnn = %d", bcnn);
     return 0;
 }

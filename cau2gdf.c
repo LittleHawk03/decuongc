@@ -16,7 +16,7 @@ int main()
     {
         printf("%-8d %-8.2f\n",nam,gdp2);
         nam++;
-        gdp2 = gdp2 + rgdp * gdp2;
+        gdp2 = gdp2 + (rgdp/100) * gdp2;
     }
 
     return 0;

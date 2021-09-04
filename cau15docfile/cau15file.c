@@ -15,7 +15,7 @@ void doc_matrix(FILE *fp, int a[][100], int n, int m)
 }
 
 FILE *fp;
-const char *name = "C:/Trenlop10/cau15docfile/MA_TRAN.txt";
+const char *name = "C:/Trenlop10/cau15docfile/MA_TRAN.C";
 
 void doc_file_matrix(int a[][100], int b[][100], int *n, int *m)
 {

@@ -67,10 +67,10 @@ void show(List *plist)
 {
     TNode *node = plist->first;
     int i = 1;
-    printf("%-10s %-30s %-10s %-10s\n", "stt", "Ho Ten", "Tuoi", "DiemTB");
+    printf("%-10s %-35s %-10s %-10s\n", "stt", "Ho Ten", "Tuoi", "DiemTB");
     while (node != NULL)
     {
-        printf("%-2d %-30s %-10d %-10.2f\n", i, node->ten, node->tuoi, node->diem);
+        printf("%-10d %-35s %-10d %-10.2f\n", i, node->ten, node->tuoi, node->diem);
         node = node->next;
         i++;
     }
@@ -120,6 +120,7 @@ void xoa_sinh_vien(List *plist, char getname[])
         }
         else if (plist->last == node)
         {
+            NodeLT->next = NULL;
             plist->last = NodeLT;
         }
         else
@@ -170,7 +171,7 @@ int main()
     printf("6.	Ket thuc\n");
     while (1)
     {
-        printf("lua chon so :");
+        printf("lua chon so : ");
         scanf("%d", &t);
         switch (t)
         {
